@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../plantilla/plantilla.xhtml">
+
+
+            <ui:define name="content">
+                 <h2>Datos del Contribuyente </h2>
+                         <h:form>
+                    <p:commandButton value="Nuevo Contribuyente" actionListener="#{clienteBean.prepararNuevoContribuyente()}"
+                                     oncomplete="PF('dialogNuevoContribuyente').show();" update=":formNuevoContribuyente" />
+                    
+                </h:form>   
+                
+                <h:form id="formMostraContribuyentes">
+                    <p:dataTable id="tablaContribuyentes" paginator="true" paginatorPosition="top"
+                                 var="ven"  value="#{contribuyenteBean.listaContribuyentes}" emptyMessage="No hay datos de clientes">
+      
+                        <!--<p:column headerText="id_contribuyente">
+                            <h:outputText value="#{ven.id}"/>
+                        </p:column>-->
+                        
+                        <p:column headerText="Ruc" filterBy="#{ven.ruc}" sortBy="#{ven.ruc}">
+                            <center>
+                                <h:outputText value="#{ven.ruc}"/>
+                            </center>
+                        </p:column>
+                        
+                         <p:column headerText="Razon Social" filterBy="#{ven.razonSocial}" sortBy="#{ven.razonSocial}">
+                            <h:outputText value="#{ven.razonSocial}" />
+                        </p:column>
+                        
+                        <p:column headerText="Estados " filterBy="#{ven.estado}" sortBy="#{ven.estado}">
+                            <center>
+                                <h:outputText value="#{ven.estado}"/>
+                            </center>
+                        </p:column>
+                        
+                        <p:column headerText="Inicio Act" filterBy="#{ven.inicioAct}" sortBy="#{ven.inicioAct}">
+                            <center>
+                                <h:outputText value="#{ven.inicioAct}"/>
+                            </center>
+                        </p:column>
+                        
+                        <p:column headerText="Parroquia" filterBy="#{ven.parroquia}" sortBy="#{ven.parroquia}">
+                            <h:outputText value="#{ven.parroquia}"/>
+                        </p:column>
+                        
+                        <p:column headerText="Tipo Cont" filterBy="#{ven.tipoCont}" sortBy="#{ven.tipoCont}">
+                            <h:outputText value="#{ven.tipoCont}" />
+                        </p:column>
+                        
+                        
+                        <p:column headerText="Calle" filterBy="#{ven.calle}" sortBy="#{ven.calle}">
+                            <center>
+                                <h:outputText value="#{ven.calle}" />
+                            </center>
+                        </p:column>
+                        
+                        <p:column headerText="Código Ciu" filterBy="#{ven.codigoCiiu}" sortBy="#{ven.codigoCiiu}">
+                            <center>
+                                <h:outputText value="#{ven.codigoCiiu}"/>
+                            </center>
+                        </p:column>
+                        
+                        
+                      
+                            <!--<p:column headerText="Modificar">
+                            <p:commandButton value="Modificar" oncomplete="PF('dialogModificarContribuyente').show();"
+                                update=":formModificarContribuyente">
+                                                 
+                                <f:setPropertyActionListener target="#{clienteBean.cliente}"
+                                                             value="#{ct}"/>
+                            </p:commandButton>
+                        </p:column>-->
+                        
+                        <p:column headerText="">
+                            <center>
+                            <p:commandButton value="Eliminar" oncomplete="PF('dialogEliminarContribuyente').show();"
+                                             update=":formEliminarContribuyente">
+                                
+                            <f:setPropertyActionListener target="#{clienteBean.cliente}" value="#{ct}"/>
+                            </p:commandButton>
+                            </center>
+                            
+                        </p:column>>
+
+                    </p:dataTable>
+                </h:form>
+                <h:form id="formNuevoContribuyente">
+                    <p:dialog id="dlgNuevoContribuyente" widgetVar="dialogNuevoContribuyente" resizable="false" showEffect="explode"
+                        hideEffect="explode" modal="true">
+                        <p:panelGrid columns="2" style="margin: 0 auto;">
+                            
+                            <p:outputLabel value="cedula"/>
+                            <p:inputText value="#{clienteBean.cliente.id}"/>
+                            
+                            <p:outputLabel value="Tipo"/>
+                            <p:inputText value="#{clienteBean.cliente.tipo}"/>
+                            
+                            <p:outputLabel value="Identificacion"/>
+                            <p:inputText value="#{clienteBean.cliente.identificacion}"/>
+                            
+                            <p:outputLabel value="Apellidos"/>
+                            <p:inputText value="#{clienteBean.cliente.apellidos}"/>
+                            
+                            <p:outputLabel value="Nombres"/>
+                            <p:inputText value="#{clienteBean.cliente.nombres}"/>
+             
+                            <p:outputLabel value="Fecha Nac"/>
+                            <p:inputText value="#{clienteBean.cliente.fechanac}"/>
+
+                            <p:outputLabel value="Estado civil"/>
+                            <p:inputText value="#{clienteBean.cliente.estadocivil}"/>
+                            
+                            <p:outputLabel value="sexo"/>
+                            <p:inputText value="#{clienteBean.cliente.sexo}"/>
+                            
+                            <p:outputLabel value="Ciudad"/>
+                            <p:inputText value="#{clienteBean.cliente.ciudad}"/>
+                            
+                            <p:outputLabel value="Email"/>
+                            <p:inputText value="#{clienteBean.cliente.email}"/>
+                            
+                            <p:outputLabel value="Telefono"/>
+                            <p:inputText value="#{clienteBean.cliente.telf}"/>
+                            
+                            <p:outputLabel value="Celular"/>
+                            <p:inputText value="#{clienteBean.cliente.celular}"/>
+                            
+                            <p:outputLabel value="Direccion"/>
+                            <p:inputText value="#{clienteBean.cliente.direccion}"/>
+                            
+                        </p:panelGrid>
+                        
+                        <p:commandButton value="Guardar" actionListener="#{clienteBean.nuevoContribuyente()}"
+                                         update=":formMostraContribuyentes:tablaContribuyentes"
+                                         oncomplete="PF('dialogNuevoContribuyente').hide();"/>
+                        
+                        <p:commandButton value="Cancelar"  
+                                         oncomplete="PF('dialogNuevoContribuyente').hide();"/>
+                    </p:dialog>
+                </h:form>
+                
+                <h:form id="formModificarContribuyente">
+                    <p:dialog id="dlgModificar" widgetVar="dialogModificarContribuyente" resizable="false" showEffect="explode"
+                        hideEffect="explode" modal="true">
+                        <p:panelGrid columns="2" style="margin: 0 auto;">
+                            
+                            
+                           <p:outputLabel value="cedula"/>
+                            <p:inputText value="#{clienteBean.cliente.id}"/>
+                            
+                            <p:outputLabel value="Tipo"/>
+                            <p:inputText value="#{clienteBean.cliente.tipo}"/>
+                            
+                            <p:outputLabel value="Identificacion"/>
+                            <p:inputText value="#{clienteBean.cliente.identificacion}"/>
+                            
+                            <p:outputLabel value="Apellidos"/>
+                            <p:inputText value="#{clienteBean.cliente.apellidos}"/>
+                            
+                            <p:outputLabel value="Nombres"/>
+                            <p:inputText value="#{clienteBean.cliente.nombres}"/>
+             
+                            <p:outputLabel value="Fecha Nac"/>
+                            <p:inputText value="#{clienteBean.cliente.fechanac}"/>
+
+                            <p:outputLabel value="Estado civil"/>
+                            <p:inputText value="#{clienteBean.cliente.estadocivil}"/>
+                             
+                            <p:outputLabel value="sexo"/>
+                            <p:inputText value="#{clienteBean.cliente.sexo}"/>
+                            
+                            <p:outputLabel value="Ciudad"/>
+                            <p:inputText value="#{clienteBean.cliente.ciudad}"/>
+                            
+                            <p:outputLabel value="Email"/>
+                            <p:inputText value="#{clienteBean.cliente.email}"/>
+                            
+                            <p:outputLabel value="Telefono"/>
+                            <p:inputText value="#{clienteBean.cliente.telf}"/>
+                            
+                            <p:outputLabel value="Celular"/>
+                            <p:inputText value="#{clienteBean.cliente.celular}"/>
+                            
+                            <p:outputLabel value="Direccion"/>
+                            <p:inputText value="#{clienteBean.cliente.direccion}"/>
+                            
+                        </p:panelGrid>
+                        <p:commandButton value="Guardar" actionListener="#{clienteBean.modificarContribuyente()}"
+                                         update=":formMostraContribuyentes:tablaContribuyentes"
+                                         onclick="PF('dialogModificarContribuyente').hide();"/>
+                        
+                        <p:commandButton value="Cancelar"  
+                                         oncomplete="PF('dialogModificarContribuyente').hide();"/>
+                    </p:dialog>
+                </h:form>
+                
+                 <h:form id="formEliminarContribuyente">
+                    <p:dialog id="dlgEliminarContribuyente" widgetVar="dialogEliminarContribuyente" resizable="false" showEffect="explode"
+                        hideEffect="explode" modal="true">
+                        <h:outputText value="Desea eliminar este registro?"/>
+                                      <p:commandButton value="SI" actionListener="#{clienteBean.eliminarContribuyente()}"
+                                         update=":formMostraContribuyentes:tablaContribuyentes"
+                                         oncomplete="PF('dialogEliminarContribuyente').hide();"/>
+                        
+                        <p:commandButton value="NO" oncomplete="PF('dialogEliminarContribuyente').hide();"/>
+                    </p:dialog>
+                </h:form>
+    </ui:define>
+
+          
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-ago-2017 10:34:14 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sys.model.Cliente" table="cliente" schema="public" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="tipo" type="string">
+            <column name="tipo" length="20" not-null="true" />
+        </property>
+        <property name="identificacion" type="string">
+            <column name="identificacion" length="50" not-null="true" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" length="100" not-null="true" />
+        </property>
+        <property name="nombres" type="string">
+            <column name="nombres" length="100" not-null="true" />
+        </property>
+        <property name="fechanac" type="date">
+            <column name="fechanac" length="13" />
+        </property>
+        <property name="estadocivil" type="string">
+            <column name="estadocivil" length="15" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="sexo" length="10" />
+        </property>
+        <property name="ciudad" type="string">
+            <column name="ciudad" length="100" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="100" />
+        </property>
+        <property name="telf" type="string">
+            <column name="telf" length="7" />
+        </property>
+        <property name="celular" type="string">
+            <column name="celular" length="10" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

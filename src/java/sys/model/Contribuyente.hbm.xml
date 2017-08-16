@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-ago-2017 10:34:14 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="sys.model.Contribuyente" table="contribuyente" schema="public" optimistic-lock="version">
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="ruc" type="string">
+            <column name="ruc" />
+        </property>
+        <property name="razonSocial" type="string">
+            <column name="razon_social" />
+        </property>
+        <property name="nomComercial" type="string">
+            <column name="nom_comercial" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" />
+        </property>
+        <property name="clase" type="string">
+            <column name="clase" />
+        </property>
+        <property name="inicioAct" type="string">
+            <column name="inicio_act" />
+        </property>
+        <property name="fecActualizacion" type="string">
+            <column name="fec_actualizacion" />
+        </property>
+        <property name="fecSuspension" type="string">
+            <column name="fec_suspension" />
+        </property>
+        <property name="reinicioAct" type="string">
+            <column name="reinicio_act" />
+        </property>
+        <property name="obligado" type="string">
+            <column name="obligado" />
+        </property>
+        <property name="tipoCont" type="string">
+            <column name="tipo_cont" />
+        </property>
+        <property name="numEstab" type="string">
+            <column name="num_estab" />
+        </property>
+        <property name="nomFantasia" type="string">
+            <column name="nom_fantasia" />
+        </property>
+        <property name="calle" type="string">
+            <column name="calle" />
+        </property>
+        <property name="numCalle" type="string">
+            <column name="num_calle" />
+        </property>
+        <property name="interseccion" type="string">
+            <column name="interseccion" />
+        </property>
+        <property name="estadoEst" type="string">
+            <column name="estado_est" />
+        </property>
+        <property name="provincia" type="string">
+            <column name="provincia" />
+        </property>
+        <property name="canton" type="string">
+            <column name="canton" />
+        </property>
+        <property name="parroquia" type="string">
+            <column name="parroquia" />
+        </property>
+        <property name="codigoCiiu" type="string">
+            <column name="codigo_ciiu" />
+        </property>
+        <property name="actividadEco" type="string">
+            <column name="actividad_eco" />
+        </property>
+    </class>
+</hibernate-mapping>
